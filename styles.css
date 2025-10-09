@@ -357,10 +357,17 @@ header {
 }
 
 .timeline-item {
-  padding: 2rem 0;
+  padding: 1.5rem 0;
   position: relative;
   background-color: inherit;
   width: 50%;
+}
+
+/* Overlapping timeline items on larger screens */
+@media (min-width: 992px) {
+  .timeline-item:not(:first-child) {
+    margin-top: -3rem;
+  }
 }
 
 /* Timeline markers (circles) */
@@ -412,10 +419,9 @@ header {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.5s ease, border-color 0.5s ease;
-  display: flex;
-  gap: 1.5rem;
-  align-items: flex-start;
+  display: block;
   height: 100%;
+  width: 100%;
 }
 
 .experience-card:hover {
@@ -423,17 +429,25 @@ header {
   border-color: rgba(25, 26, 27, 0.5);
 }
 
+.experience-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
 .company-logo {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f8f9fa;
   border: 2px solid #dee2e6;
   border-radius: 12px;
-  padding: 8px;
+  padding: 6px;
+  margin-top: 0.25rem;
 }
 
 .company-logo-img {
@@ -442,15 +456,20 @@ header {
   object-fit: contain;
 }
 
-.experience-details {
+.experience-title-section {
   flex: 1;
+}
+
+.experience-details {
+  width: 100%;
 }
 
 .position-title {
   font-family: "EB Garamond", serif;
-  font-size: 2rem;
+  font-size: 1.6rem;
   margin-bottom: 0.5rem;
   color: var(--text-color);
+  line-height: 1.2;
 }
 
 .company-name {
@@ -458,6 +477,7 @@ header {
   font-size: 1.1rem;
   color: #6c757d;
   margin-bottom: 1rem;
+  width: 100%;
 }
 
 .date-location {
@@ -468,6 +488,7 @@ header {
   font-family: "Afacad Flux", serif;
   font-size: 0.95rem;
   color: #888;
+  width: 100%;
 }
 
 .date {
@@ -718,17 +739,21 @@ footer p {
 
   .experience-card {
     padding: 1.5rem;
-    gap: 1rem;
+  }
+
+  .experience-header {
+    margin-bottom: 1rem;
   }
 
   .company-logo {
-    width: 50px;
-    height: 50px;
-    padding: 6px;
+    width: 45px;
+    height: 45px;
+    padding: 5px;
+    margin-top: 0.2rem;
   }
 
   .position-title {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
   }
 
   .company-name {
@@ -766,16 +791,22 @@ footer p {
 
   .experience-card {
     padding: 1rem;
-    flex-direction: column;
     text-align: center;
   }
 
-  .company-logo {
-    align-self: center;
+  .experience-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     margin-bottom: 1rem;
-    width: 45px;
-    height: 45px;
-    padding: 5px;
+  }
+
+  .company-logo {
+    margin-bottom: 0.5rem;
+    margin-top: 0;
+    width: 40px;
+    height: 40px;
+    padding: 4px;
   }
 
   .date-location {
