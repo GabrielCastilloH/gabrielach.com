@@ -367,7 +367,7 @@ header {
 /* Overlapping timeline items on larger screens */
 @media (min-width: 992px) {
   .timeline-item:not(:first-child) {
-    margin-top: -3rem;
+    margin-top: -8rem;
   }
 }
 
